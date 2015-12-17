@@ -47,7 +47,7 @@ sub table {
     return join("", grep {$_} @table);
 }
 
-# FROM_MODULE: List::Util::PP
+# FROM_MODULE: PERLANCAR::List::Util::PP
 # BEGIN_BLOCK: max
 sub max {
     return undef unless @_;
