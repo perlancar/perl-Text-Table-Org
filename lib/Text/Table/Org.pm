@@ -126,6 +126,11 @@ The example shown in the SYNOPSIS generates the following table:
  | carol | brig gen | 8745     |
 
 
+=head1 FUNCTIONS
+
+=head2 table(%params) => str
+
+
 =head2 OPTIONS
 
 The C<table> function understands these arguments, which are passed as a hash.
