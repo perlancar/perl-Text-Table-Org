@@ -1,13 +1,12 @@
 package Text::Table::Org;
 
-# DATE
-# VERSION
-
-#IFUNBUILT
-use 5.010001;
 use strict;
 use warnings;
-#END IFUNBUILT
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
 
 sub table {
     my %params = @_;
@@ -37,11 +36,14 @@ sub table {
     }
 
     # then the data
-    foreach my $row ( @{ $rows }[$data_begins..$#$rows] ) {
+    my $i = 0;
+    for my $i ($data_begins..$#$rows) {
+        my $row = $rows->[$i];
         push @table, sprintf(
 	    $format,
 	    map { defined($row->[$_]) ? $row->[$_] : '' } (0..$max_index)
 	);
+        push @table, $row_sep if $params{separate_rows} && $i < $#$rows;
     }
 
     return join("", grep {$_} @table);
@@ -146,6 +148,10 @@ each row is an array reference.
 
 If given a true value, the first row in the data will be interpreted as a header
 row, and separated from the rest of the table with a ruled line.
+
+=item * separate_rows (bool)
+
+If set to true, will add separator line between data rows.
 
 =back
 
