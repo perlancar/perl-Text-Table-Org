@@ -52,7 +52,7 @@ sub table {
 # FROM_MODULE: PERLANCAR::List::Util::PP
 # BEGIN_BLOCK: max
 sub max {
-    return undef unless @_;
+    return undef unless @_; ## no critic: Subroutines::ProhibitExplicitReturnUndef
     my $res = $_[0];
     my $i = 0;
     while (++$i < @_) { $res = $_[$i] if $_[$i] > $res }
@@ -60,7 +60,7 @@ sub max {
 }
 # END_BLOCK: max
 
-sub _get_cols_and_rows ($) {
+sub _get_cols_and_rows ($) { ## no critic: Subroutines::ProhibitSubroutinePrototypes
     my $rows = shift;
     return ( max( map { scalar @$_ } @$rows), scalar @$rows);
 }
