@@ -23,6 +23,8 @@ sub table {
     # here we go...
     my @table;
 
+    push @table, "#+CAPTION: $params{title}\n" if defined $params{title};
+
     # if the first row's a header:
     my $data_begins = 0;
     if ( $params{header_row} ) {
@@ -152,6 +154,13 @@ row, and separated from the rest of the table with a ruled line.
 =item * separate_rows (bool)
 
 If set to true, will add separator line between data rows.
+
+=item * title
+
+Optional. String. If set, will add this line (C<your title> will be the actual
+title that you provide):
+
+ #+CAPTION: your title
 
 =back
 
