@@ -23,7 +23,7 @@ sub table {
     # here we go...
     my @table;
 
-    push @table, "#+CAPTION: $params{title}\n" if defined $params{title};
+    push @table, "#+CAPTION: $params{caption}\n" if defined $params{caption};
 
     # if the first row's a header:
     my $data_begins = 0;
@@ -155,12 +155,12 @@ row, and separated from the rest of the table with a ruled line.
 
 If set to true, will add separator line between data rows.
 
-=item * title
+=item * caption
 
-Optional. String. If set, will add this line (C<your title> will be the actual
-title that you provide):
+Optional. String. If set, will add this line to the beginning of output (C<table
+caption> will be the actual caption string that you provide):
 
- #+CAPTION: your title
+ #+CAPTION: table caption
 
 =back
 
